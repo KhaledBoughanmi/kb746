@@ -1,0 +1,250 @@
+/* http://www.maxdesign.com.au/articles/css-layouts/two-fixed/ */
+
+html { background: #fff; height:auto; }
+
+body, div, h1, h2, h3, p, ul, ol, li, img {
+	margin: 0; padding: 0; border: 0;
+}
+
+body {
+    background:fff;
+    font-family: Sans-Serif;
+    height:100%;
+    font-size:.875em;
+}
+
+#menu-container
+{
+    margin: 0 auto;
+    width: 600px;
+    font-size:1em;
+}
+
+
+#container
+{
+    margin: 0 auto;
+    width: 600px;
+    background: #fff;
+    /* -mox-box-shadow: 0 0 5px #DDDDD0; */
+    /* -webkit-box-shadow: 0 0 5px #DDDDD0; */
+    /* box-shadow: 0 0 5px #EEEEE0; */
+    padding: 0 20px 0px 20px;
+    min-height:100%;
+}
+
+a {
+    text-decoration:none; color:#000098;
+}
+a:hover {
+    color:#00E;
+}
+
+gr {
+    color: #888; 
+}
+
+gr a {
+    text-decoration:none; color:000090;
+}
+gr a:hover {
+    color:#00E;
+}
+
+tt {
+    font-family:'Lucida Console', monospace;
+}
+
+menubar {
+    font-family:inherit;
+    font-size:1em;
+    height: 50px;
+    line-height:10px;
+     /*background:#930101;*/ 
+	/*background:#2E86C1; */
+    /* background:#2F4F4F; */
+     background:#303030;
+    color:#fff;
+    position:fixed;
+    padding-left:0em;
+    width:100%;
+}
+
+menubar a {
+    text-decoration:none; color:#fff;
+}
+
+menubar a:hover {
+    color:#fff;
+}
+
+menubar #menu-container ul {
+    width:100%;
+    margin:auto;
+    display:table;
+}
+
+menubar #menu-container ul li {
+    display: table-cell;
+    /*width: 20%;  /* (100 / numItems)% */
+    white-space: nowrap;
+    text-align:center;
+}
+
+
+#content-container
+{
+    width: 100%;
+    background: #fff;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+    font-size:1em;
+}
+
+#content
+{
+    float: right;
+    width: 100%;
+    padding: 0px 0;
+    margin: 0 0 10 0px;
+
+}
+
+#content p {
+    color: #555; margin: 0 0 15px 0; line-height:1.6em;
+}
+
+#content #bibblock {
+    color: #555; margin: 0 0 0 0; line-height:1.4em;
+}
+
+
+h1
+{
+    font-family:inherit;
+    font-weight:normal;
+    font-size:1.5em; 
+    color:#444; 
+    font-variant:normal;
+    margin: 0 0 1em 0;
+    padding-top:3.5em;
+}
+
+h1:after {  
+    content: '';  
+    background-color:#ccc;  
+    height: 1px;  
+    display: block;  
+    margin-top:.5em;
+}  
+
+h2 {
+    font-family:inherit;
+    font-size:1.25em; 
+    color:#444; 
+    font-variant:normal;
+    margin: 1em 0 1em 0;
+    padding-top:0;
+    font-weight:normal;
+}
+
+h2:after {  
+    content: '';  
+    background-color:#ccc;  
+    height: 1px;  
+    display: block;
+    margin-top:.3em;
+}  
+
+
+h3 {
+    font-family:inherit;
+    font-family:inherit;
+    font-weight:normal;
+    font-size:1.15em; 
+    color:#444; 
+    font-variant:normal;
+    margin: 1.9em 0 1em 0;
+
+}
+
+
+#grbox {
+    background:#F2F2F2; 
+    padding:20px 2em 20px 2em; 
+    text-align:center; 
+    margin: 10px 0px 10px 0px; 
+    font-weight:normal;
+    line-height:1.4em;
+}
+
+table {
+    font-family:inherit;font-size:inherit;
+    border-collapse: collapse;
+    line-height:1.4em;
+    border-spacing:2em;
+    margin: 0 auto 0 auto;
+}
+
+th {
+    border-bottom: 1px solid #cecfd5;
+    padding: 0 1em .3em 1em;
+    font-weight:normal;
+}
+
+td {
+    padding: 0 1em 0 1em;
+}
+
+tbody:before
+{
+  content: '';
+  display: block;
+  height: 1em;
+}
+
+
+#content ul {
+    list-style-position: outside;
+}
+
+#content ul li {
+    margin: 0 0 15px 0; line-height:1.4em; list-style-type:bullet;
+}
+
+#content #bibblock ul {
+    list-style-position: outside; margin: 10px 0 10px 0; 
+}
+
+#content #bibblock ul li {
+    margin: 10 0 15px 35px; line-height:1.4em; list-style-type:none; color:#000;
+}   
+
+#content #syllabus ul {
+    list-style-position: inside; margin: 1em 0 1em 0; 
+}
+
+#content #syllabus ul li {
+    margin: 0 0 0 0; line-height:1.4em; list-style-type:disc; color:#555;
+}   
+
+#content #syllabus ol {
+    list-style-position: inside; margin: 1em 0 1em 0;
+}
+
+#content #syllabus ol li {
+    margin: 0 0 0 0; line-height:1.4em; list-style-type:1; color:#000;
+}   
+
+
+@media only screen and (max-device-width:480px) {
+    body{
+	-webkit-text-size-adjust: none;
+    }
+    menubar {
+	position:absolute;
+	font-size:1.6em;
+    }
+}
+
+
