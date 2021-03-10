@@ -1,7 +1,5 @@
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Khaled Boughanmi</title>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -17,17 +15,53 @@
 
 
 <LINK rel="stylesheet" type="text/css" name="main" href="styles.css">
+<!--###########################
+    Expand/Collapse JS and CSS code for use
+    in the HEAD section of your document.
+    Written by Dick Ervasti. Learn More at:
+    http://dickervasti.com/wiki-style-text-expand-collapse-no-jquery.htm
+    ##################################-->
+    <script type="text/javascript">
+    <!--
+        function expand_collapse(id) {
+           var e = document.getElementById(id);
+           var f = document.getElementById(id+"_collapse");
+           if(e.style.display == 'none'){
+              e.style.display = 'block';
+              f.innerHTML = 'Hide Abstract';
+           }
+           else {
+              e.style.display = 'none';
+              f.innerHTML = 'Show Abstract';
+           }
+        }
+    //-->
+    </script>
+    <style type="text/css">
+    .arrows{text-decoration:none;color:silver;}
+    </style>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-114722060-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 </head>
+
 
   <menubar>
     <div id="menu-container">
       <ul>
 	<li style="width:50%; text-align:left;">
-	  <a href="./index.html"><b><br><br>Home</b></a>
+	  <a href="./bio.html"><b><br><br>Bio</b></a>
 	</li>
 
 	<li style="width:50%; text-align:left;">
-	  <a href="./research.html"><b><br><br>Research</b></a>
+	  <a href="./index.html"><b><br><br>Research</b></a>
 	</li>
 
 	<li style="width:50%; text-align:left;">
@@ -38,22 +72,138 @@
     </div>
   </menubar>
 
-</table>
-<table align="center" width=900>
-<tr>
-<td align="left" valign="middle"><img src="Me.jpg"></td>
-<td>
-<h1>Khaled Boughanmi</h1>
-<!--Doctoral student<br>
-Marketing <br>
-Columbia University, Graduate School of Business
-<br><br><br>-->
-I am an Assistant Professor of Marketing at the Johnson School of Management at Cornell University.
-<br><br>
-My primary research interests are in the area of data-driven decision making, Bayesian nonparametrics and machine learning with a focus on applications in e-commerce, personalization, online marketing and service systems.
-<br><br>
-I am a graduate of Louis Le Grand (France) with a major in mathematics and physics and ENSAE ParisTech (France), Ecole National de la Statistique et de l'Administration Economique, with a major in applied mathematics, statistics and economics.
-I also received a M.Sc. and a Ph.D. from Columbia University.
 
-<hr noshade>
-</body>
+</td>
+</table>
+<table align="center" width=800>
+<tr>
+<td>
+<br>
+<br>
+<ul>
+
+<br>
+<p style="font-size:1.5vw"><b>Khaled Boughanmi</b></p>
+Assistant Professor of marketing<br>
+Marketing & Management Communication<br>
+Cornell University, SC Johnson Graduate School of Management<br>
+
+<h2>Publications and Accepted Papers</h2>
+
+<li><a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2018.1794" target="_blank">Randomized Algorithms for Lexicographic Inference</a><br>
+Rajeev Kohli, <b>Khaled Boughanmi</b> and Vikram Kohli.<br>
+<em>Operations Research</em>, 2019.<br>
+
+[<a href="#abstract" id="1_collapse" onclick="expand_collapse('1');">Show Abstract</a>]
+[<a href="https://www.researchgate.net/publication/314078578_Randomized_algorithms_for_lexicographic_inference" target="_blank">Paper</a>]
+
+<div id="1" style="display:none;">
+<blockquote>
+The inference of a lexicographic rule from paired comparisons, ranking or choice data is a discrete optimization problem that generalizes the linear ordering problem.
+We develop an approach to its solution using randomized algorithms.
+First, we show that maximizing the expected value of a randomized solution is equivalent to solving the lexicographic inference problem.
+As a result, the discrete problem is transformed into a continuous and unconstrained nonlinear program that can be solved, possibly only to a local optimum, using standard nonlinear optimization methods.
+Second, we show that a maximum likelihood procedure, which runs in polynomial time, can be used to implement the randomized algorithm.
+The maximum likelihood value determines a lower bound on the performance ratio of the randomized algorithm.
+We employ the proposed approach to infer lexicographic rules for individuals using data from a choice experiment for electronic tablets.
+These rules obtain substantially better fit and predictions than a previously described greedy algorithm, a local-search algorithm, and multinomial logit and probit models.
+</blockquote>
+</div>
+<br>
+
+<h2>Manuscripts under Review</h2>
+<li><!<a href=music_dynamics.pdf target="_blank"></!> Dynamics of Musical Success: A Machine Learning Approach for Multimedia Data Fusion</a>,<br> <em> </em>
+<b>Khaled Boughanmi</b> and Asim Ansari.<br>
+<em>Journal of Marketing Research,</em> conditonally accepted.<br>
+<em></em>
+This project won the Deming Center Doctoral Fellowship award.
+<br>
+[<a href="#abstract" id="0_collapse" onclick="expand_collapse('0');">Show Abstract</a>]
+[<a href= dynamics_nonparametrics.py target="_blank">Python Code</a>]
+[<a href= Utils.py target="_blank">Tools</a>]
+
+<div id="0" style="display:none;">
+<blockquote>
+  The success of creative products depends upon the felt experience of consumers. Capturing such consumer reactions requires the fusing of different types of experiential covariates and perceptual data in an integrated modeling framework. In this paper,  the authors develop a novel multimodal machine learning framework that combines multimedia data (e.g., metadata, acoustic features and user generated textual data) in creative product settings and apply it for predicting the success of musical albums and playlists. The authors estimate the proposed model on a unique dataset which they collected using different online sources. The model integrates different types of nonparametrics to flexibly accommodate diverse types of effects. It uses penalized splines to capture the nonlinear impact of acoustic features and a supervised hierarchical Dirichlet process to represent crowd-sourced textual tags. It captures dynamics via a state-space specification.  The authors show the predictive superiority of the model with respect to several benchmarks. The results illuminate the dynamics of musical success over the past five decades. The authors then use the components of the model for marketing decisions such as forecasting the success of new albums, album tuning and diagnostics, construction of playlists for different generations of music listeners, and contextual recommendations.
+ </blockquote>
+</div>
+<br>
+<br>
+
+
+<li>A Multi-Attribute Choice Model with Similarity, Compromise and Attraction Effects</a><br>
+<b>Khaled Boughanmi</b>, Kamel Jedidi and Rajeev Kohli.<br>
+Submitted for third round review at <em>Journal of Marketing Research.</em><br>
+This project won the Luxury education award.<br>
+[<a href="#abstract" id="2_collapse" onclick="expand_collapse('2');">Show Abstract</a>]
+
+<div id="2" style="display:none;">
+<blockquote>
+We develop a multi-attribute model that captures similarity, compromise and attraction effects. The model assumes that the choice probability of an alternative depends on (1) its position relative to a choice-set specific reference point and (2) an individual-specific scaling parameter that determines the convexity of the indifference curves in the attribute space. A simulation confirms that the reference point can be accurately recovered. Analysis of data from an experiment manipulating context effects shows that the model can accurately capture similarity, attraction and compromise effects. We report two applications. The first  uses data from a choice experiment for cameras and extends the model to capture no choice and unobserved heterogeneity using a hierarchical Bayesian framework.  The second  uses data from a study on travel mode choice and models observed heterogeneity in consumer preferences. In both applications, the proposed model predicts better than multiple competing models. These results suggest that the model can be reliably estimated and that unobserved and observed heterogeneity in reference points and scaling parameters can be incorporated in the model. We show that allowing consumers the possibility of making no-choice weakens context effects. We also illustrate the value of reflecting context effects in choice simulations and product-line design.
+</blockquote>
+</div>
+
+<br>
+<h2>Working Papers</h2>
+<li>The Impact of Fame on Artistic Production: A Nonparametric Approach for Causal Inference on Unstructured Outcomes</a><br> <em> </em>
+<b>Khaled Boughanmi</b>, Olivier Toubia and Asim Ansari.<br>
+[<a href="#abstract" id="ol_collapse" onclick="expand_collapse('ol');">Show Abstract</a>]
+<br>
+
+<div id="ol" style="display:none;">
+<blockquote>
+Awards give a valuable boost to firms and individuals that operate in creative industries as they increase visibility and boost growth opportunities. In this paper, we study the causal impact of winning the Grammy for Best New Artist on the subsequent productivity and the growth in musical variety offered by winners. Our causal identification strategy controls for the ability bias by comparing the outcomes of the winners and the contenders to the award. Our empirical investigation leverages a rich data set that we collected from multiple online data sources, and that spans the entire history of the award: the nominees, their characteristics, and the integrity of their repertoires. The data set also contains most of the song releases of these artists as well as their acoustic fingerprints which are digital summaries of the songs’ phonic features. Our inference strategy leverages probabilistic machine learning and Bayesian nonparametric techniques to structure an artist’s musical repertoire. Specifically, we use a hierarchical Dirichlet process to discover how musical styles emerge in an artist’s repertoire before and after the nomination to the Grammy. Our framework provides interesting insights about the effect of fame on artistic production.
+</blockquote>
+</div>
+<br>
+
+<li>Solving Large Linear Ordering Problems</a><br>
+Rajeev Kohli, <b>Khaled Boughanmi</b> and Vikram Kohli.<br>
+[<a href="#abstract" id="3_collapse" onclick="expand_collapse('3');">Show Abstract</a>]
+<br>
+
+<div id="3" style="display:none;">
+<blockquote>
+The linear ordering problem combines multiple rankings or paired comparisons  of alternatives into a single representative ranking.
+It is used, for example, by Facebook to construct personalized newsfeeds and by Twitter to form while-you-were-away lists.
+The standard formulation of the linear ordering problem is a computationally complex discrete optimization problem that uses paired-comparisons data.
+We propose an alternative approach using a random-utility framework. This approach subsumes the discrete formulation as a special case; explicitly
+models uncertainty and error in outcomes; distinguishes among paired comparison, ranking and choice data; and can be solved efficiently (in polynomial time)
+using maximum likelihood upon assuming that the random utilities have independent extreme value distributions. The maximum likelihood solution can also be used
+to implement an efficient randomized algorithm  that obtains an approximate solution to the discrete optimization version of the linear ordering problem.
+As the likelihood value increases, a lower bound on the expected value of the randomized solution increases towards the optimal solution value of the discrete problem.
+ The proposed approach is used for ranking up to two-thousand funny videos using paired-comparisons data collected by a research lab at YouTube.
+The maximum likelihood solution is obtained quickly for large problems. It also closely approximates the optimal solution to the discrete linear ordering problem.
+</blockquote>
+</div>
+
+<br>
+
+<li>Adaptive Customization</a>,<br>
+<em> </em>
+Malek Ben Slimane, <b>Khaled Boughanmi</b> and Rajeev Kohli. <br>
+[<a href="#abstract" id="4_collapse" onclick="expand_collapse('4');">Show Abstract</a>]
+<div id="4" style="display:none;">
+<blockquote>
+E-commerce sites often allow users to narrow the available alternatives into increasingly smaller sets by
+selecting a sequence of relevant features. After each feature is selected, we predict the sequence of features
+a shopper is most likely to use next. The predictions can change after the selection of each additional
+feature. We use these predictions to adaptively customize the display of alternatives and feature menus,
+and to recommend products to shoppers. The proposed approach uses oine and/or online data to identify
+latent consumer segments, and uses the information obtained when a shopper chooses a feature to update
+his/her segment membership probabilities using Bayes' rule. The optimal predicted sequence is obtained by
+weighting the segment-level sequence probabilities by the posterior membership probabilities. The predicted
+sequences are required only for a few steps because the screening process typically terminates after four orfive steps. We illustrate the proposed approach using data on consumer choices for electronic tablets. </blockquote>
+</div>
+
+
+<br>
+<h2>Work in Progress</h2>
+
+<li>Playlist Contextualization and Personalization: A Bayesian nonparametric approach </a><br> <em> </em>
+<b>Khaled Boughanmi</b>, Yang Li and Asim Ansari.<br>
+<br>
+
+<li>A Deep Learning Approach to Music Sequencing and Streaming </a><br> <em> </em>
+Anirban Mukherjee, <b>Khaled Boughanmi </b> and Asim Ansari.<br>
+<br>
