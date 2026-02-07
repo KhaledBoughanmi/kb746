@@ -1,239 +1,555 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Khaled Boughanmi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Khaled Boughanmi" />
+  <title>Khaled Boughanmi</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114722060-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-114722060-1');
-</script>
+  <!-- Google Analytics (as in your original) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114722060-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114722060-1');
+  </script>
 
-<LINK rel="stylesheet" type="text/css" name="main" href="styles.css">
+  <!-- Fonts: serif for headings (gravitas) + clean sans for body (precision) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
 
-<script type="text/javascript">
-function expand_collapse(id) {
-  var e = document.getElementById(id);
-  var f = document.getElementById(id + "_collapse");
-  if (e.style.display === 'none') {
-    e.style.display = 'block';
-    f.innerHTML = 'Hide Video Overview';
-  } else {
-    e.style.display = 'none';
-    f.innerHTML = 'Watch Video Overview';
-  }
-}
-</script>
+  <style>
+    :root{
+      /* ===== Personal theme controls ===== */
+      --profile-img-width: 250px; /* <- change this to resize the photo column */
 
-<style>
-.video-container {
-  margin-top: 6px;
-  margin-bottom: 12px;
-}
+      /* ===== Color palette (deep blue + graphite) ===== */
+      --ink: #1f2933;          /* main text */
+      --muted: #6b7280;        /* secondary text */
+      --accent: #1e3a8a;       /* deep academic blue */
+      --accent-soft: #eef2f8;  /* subtle header bg */
+      --rule: #d1d5db;         /* borders */
+      --paper: #ffffff;        /* page bg */
+    }
 
-.video-toggle {
-  cursor: pointer;
-  color: #555;
-  font-size: 0.9em;
-  text-decoration: underline;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-video {
-  max-width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-}
-</style>
+    body{
+      font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background-color: var(--paper);
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0;
+      padding-top: 90px;
+      font-size: 16px;
+    }
+
+    header{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background-color: var(--accent-soft);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      padding: 15px 0;
+    }
+
+    .header-content{
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1{
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.25em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    nav a{
+      margin-right: 20px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 400;
+      font-size: 0.95em;
+      transition: color 0.2s;
+    }
+    nav a:hover{ color: var(--accent); }
+
+    main{ padding: 0 20px 40px 20px; }
+    section{ margin: 30px 0; }
+
+    .section-title{
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.35em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      margin-top: 35px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    h2{
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.25em;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--ink);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    h3{
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1.12em;
+      font-weight: 700;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    /* About layout */
+    .profile-section{
+      display: grid;
+      grid-template-columns: var(--profile-img-width) 1fr;
+      gap: 40px;
+      margin: 0 0 30px 0;
+      align-items: start;
+    }
+
+    .profile-image{
+      width: 100%;
+      max-width: var(--profile-img-width);
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid var(--rule);
+    }
+
+    .bio{
+      font-size: 0.97em;
+      line-height: 1.65;
+    }
+    .bio p{ margin-bottom: 12px; }
+
+    .contact-info{
+      font-size: 0.92em;
+      color: var(--ink);
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .research-links{
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #374151;
+    }
+    .research-links a{ text-decoration: none; }
+    .research-links a:hover{ text-decoration: underline; }
+
+    /* Papers */
+    .paper{
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .paper-title-line{
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+    }
+
+    .paper-title{
+      font-weight: 700;
+      font-size: 0.96em;
+      color: var(--ink);
+    }
+
+    .paper-links{
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .paper-links a{
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .paper-links a:hover{ text-decoration: underline; }
+
+    .paper-authors-line{
+      color: var(--muted);
+      font-size: 0.92em;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .paper-venue{
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.9em;
+      margin-top: 3px;
+    }
+
+    .paper-notes{
+      color: var(--muted);
+      font-size: 0.9em;
+      margin-top: 4px;
+      line-height: 1.55;
+    }
+
+    /* Abstract toggle (kept even if you don't currently use abstracts) */
+    .abstract-toggle{
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 0.9em;
+      text-decoration: none;
+      user-select: none;
+      white-space: nowrap;
+      font-style: italic;
+    }
+    .abstract-toggle:hover{ color: var(--accent); }
+
+    .abstract{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: #4b5563;
+      font-size: 0.9em;
+      line-height: 1.6;
+      margin-top: 8px;
+      padding-left: 0px;
+    }
+    .abstract.show{ max-height: 1000px; }
+
+    /* Video toggle */
+    .video-container{ margin-top: 6px; margin-bottom: 12px; }
+    .video-toggle{
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.9em;
+      user-select: none;
+      white-space: nowrap;
+      font-style: italic;
+    }
+    .video-toggle:hover{ color: var(--accent); }
+    video{
+      max-width: 100%;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      margin-top: 8px;
+    }
+
+    a{ color: var(--accent); }
+
+    footer{
+      margin-top: 50px;
+      padding: 25px 0;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88em;
+    }
+    footer a{ color: var(--accent); text-decoration: none; }
+    footer a:hover{ text-decoration: underline; }
+
+    @media (max-width: 768px){
+      body{ padding-top: 110px; }
+
+      .profile-section{
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .profile-image{
+        max-width: 100%;
+      }
+
+      h1{ font-size: 1em; }
+
+      nav a{
+        display: inline-block;
+        margin-bottom: 8px;
+        margin-right: 15px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="header-content">
+      <h1>Khaled Boughanmi</h1>
+      <nav>
+        <a href="#about">Bio</a>
+        <a href="#research">Research</a>
+        <a href="cv.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+      </nav>
+    </div>
+  </header>
 
-<menubar>
-  <div id="menu-container">
-    <ul>
-      <li style="width:50%; text-align:left;">
-        <a href="./bio.html"><b><br><br>Bio</b></a>
-      </li>
-      <li style="width:50%; text-align:left;">
-        <a href="./index.html"><b><br><br>Research</b></a>
-      </li>
-      <li style="width:50%; text-align:left;">
-        <a href="cv.pdf"><b><br><br>Curriculum Vitae</b></a>
-      </li>
-    </ul>
-  </div>
-</menubar>
+  <main>
+    <!-- BIO -->
+    <section id="about">
+      <h2 class="section-title">Bio</h2>
 
-<table align="centre" width=800>
-<tr>
-<td>
-<br><br>
-<ul>
+      <div class="profile-section">
+        <div>
+          <img src="Me2022.jpg" alt="Khaled Boughanmi" class="profile-image" />
+          <div class="contact-info">
+            Cornell University<br />
+            Sage Hall, 401L<br />
+            kb746 at cornell dot edu
+          </div>
+        </div>
 
-<br>
-Khaled Boughanmi<br>
-Assistant Professor of Marketing <br>
-Cornell University<br>
-<a href="https://scholar.google.com/citations?user=78yFAcMAAAAJ&hl=en">Google Scholar </a> — 
-<a href="https://www.linkedin.com/in/khaled-boughanmi-5a75602b">Linkedin</a>
-<br>
+        <div class="bio">
+          <p><strong>Assistant Professor, Johnson School of Management, Cornell University</strong></p>
 
-<h2>Published & Forthcoming Journal Articles</h2>
+          <p>
+            I am an Assistant Professor at the
+            <a href="https://www.johnson.cornell.edu/faculty-research/faculty/kb746/" target="_blank" rel="noopener">
+             Johnson Graduate School of Management at Cornell University
+            </a>.
+          </p>
 
-<li>
-<a href="https://journals.sagepub.com/doi/10.1177/00222437251349798" target="_blank">
-Modeling Categorized Consumer Collections with Interlocked Hypergraph Neural Networks,
-</a><br>
-Khaled Boughanmi, Asim Ansari, and Yang Li.<br>
-<em>Journal of Marketing Research,</em> 2025.
-<div class="video-container">
-  <span id="video1_collapse" class="video-toggle"
-        onclick="expand_collapse('video1')">
-        Watch Video Overview
-  </span>
-  <div id="video1" style="display:none;">
-    <video controls>
-      <source src="videos/AI_That_Gets_Your_Vibe.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+          <p>
+            My primary research interests are in data-driven decision-making and machine learning. I develop quantitative models
+            (e.g., Bayesian non-parametrics, deep generative models) with a focus on applications in digital media (e.g., music),
+            personalization, online marketing, and service systems. I teach MBA courses in Marketing Management and Marketing Analytics.
+          </p>
 
-<li>
-<a href="https://www.sciencedirect.com/science/article/pii/S0167811624000995" target="_blank">
-Probabilistic Machine Learning: New Frontiers for Modeling Consumers and their Choices,
-</a><br>
-Ryan Dew, Nicolas Padilla, Lan E. Luo, Shin Oblander, Asim Ansari, Khaled Boughanmi, <br>
-Michael Braun, Fred Feinberg, Jia Liu, Thomas Otter, Longxiu Tian, Yixin Wang, and Mingzhang Yin. <br>
-<em>International Journal of Research in Marketing</em>, 2024.
-<br><br>
-</li>
+          <p>
+            I am a graduate of 
+            <a href="https://louislegrand.fr/" target="_blank" rel="noopener">
+             Louis Le Grand
+            </a>
+            (France) with a major in mathematics and physics and 
+            <a href="https://www.ensae.fr/en" target="_blank" rel="noopener">
+             ENSAE Paris
+            </a>
+            (France),
+            École Nationale de la Statistique et de l'Administration Économique, with a major in applied mathematics, statistics
+            and economics. I also received an M.Sc. and a Ph.D. from 
+            <a href="https://business.columbia.edu/" target="_blank" rel="noopener">
+             Columbia Business School
+            </a>.
+          </p>
 
-<li>
-<a href="https://journals.sagepub.com/doi/full/10.1177/00222437211016495" target="_blank">
-Dynamics of Musical Success: A Machine Learning Approach for Multimedia Data Fusion,
-</a> <br>
-Khaled Boughanmi and Asim Ansari. <br>
-<em>Journal of Marketing Research,</em> 2021.<br> - Lead article. 
-<div class="video-container">
-  <span id="video2_collapse" class="video-toggle"
-        onclick="expand_collapse('video2')">
-        Watch Video Overview
-  </span>
-  <div id="video2" style="display:none;">
-    <video controls>
-      <source src="videos/Decoding_the_Hits.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+          <div class="research-links">
+            <a href="https://scholar.google.com/citations?user=78yFAcMAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            &nbsp;—&nbsp;
+            <a href="https://www.linkedin.com/in/khaled-boughanmi-5a75602b" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<li>
-<a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2018.1794" target="_blank">
-Randomized Algorithms for Lexicographic Inference,
-</a> <br>
-Rajeev Kohli, Khaled Boughanmi, and Vikram Kohli. <br>
-<em>Operations Research</em>, 2019.<br>
-<div class="video-container">
-  <span id="video3_collapse" class="video-toggle"
-        onclick="expand_collapse('video3')">
-        Watch Video Overview
-  </span>
-  <div id="video3" style="display:none;">
-    <video controls>
-      <source src="videos/Your_Brain_s_Shortcut.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
 
-<h2>Working Papers</h2>
+      <h3>Published &amp; Forthcoming Journal Articles</h3>
 
-<li>
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4727171" target="_blank">
-Modeling Dynamic Consumer Preferences  from  Few-shot Data: A Meta-Learning Approach,
-</a> <br>
-Mingzhang Yin, Khaled Boughanmi, and Anirban Mukherjee.<br>
-<div class="video-container">
-  <span id="video4_collapse" class="video-toggle"
-        onclick="expand_collapse('video4')">
-        Watch Video Overview
-  </span>
-  <div id="video4" style="display:none;">
-    <video controls>
-      <source src="videos/The_AI_That_Learns_How_You_Think.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Modeling Categorized Consumer Collections with Interlocked Hypergraph Neural Networks</span>
+          <div class="paper-links">
+            <a href="https://journals.sagepub.com/doi/10.1177/00222437251349798" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi, Asim Ansari, and Yang Li (2025)</span>
+          <span class="video-toggle" onclick="toggleVideo('video1', this)">[Watch Video Overview]</span>
+        </div>
+        <div id="video1" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/AI_That_Gets_Your_Vibe.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="paper-venue"><em>Journal of Marketing Research</em>, 2025.</div>
+      </div>
 
-<li>
-<a href="bayesian_causal_decomposition.pdf" target="_blank">
-A Bayesian Latent-Factor Framework for Causal Decomposition in High-Dimensional Experiments,
-</a> <br>
-Khaled Boughanmi, Raghuram Iyengar, and Young-Hoon Park.<br>
-<div class="video-container">
-  <span id="video6_collapse" class="video-toggle"
-        onclick="expand_collapse('video6')">
-        Watch Video Overview
-  </span>
-  <div id="video6" style="display:none;">
-    <video controls>
-      <source src="videos/From__What__to__Why_.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Probabilistic Machine Learning: New Frontiers for Modeling Consumers and their Choices</span>
+          <div class="paper-links">
+            <a href="https://www.sciencedirect.com/science/article/pii/S0167811624000995" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>
+            Ryan Dew, Nicolas Padilla, Lan E. Luo, Shin Oblander, Asim Ansari, Khaled Boughanmi, Michael Braun, Fred Feinberg, Jia Liu,
+            Thomas Otter, Longxiu Tian, Yixin Wang, and Mingzhang Yin (2024)
+          </span>
+        </div>
+        <div class="paper-venue"><em>International Journal of Research in Marketing</em>, 2024.</div>
+      </div>
 
-<li>
-<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5599772" target="_blank">
-From Reviews to Actionable Insights: An LLM-Based Approach for Attribute and Feature Extraction,
-</a><br>
-Khaled Boughanmi, Kamel Jedidi, and Nour Jedidi.<br>
-- This research was supported by a Cornell Center for Social Sciences grant.<br>
-- Featured in 
-<a href="https://business.columbia.edu/research-brief/ai-can-read-room-better-you-think" target="_blank"><em>Columbia Business School Research in Brief, 2025.</em></a><br>
-<div class="video-container">
-  <span id="video5_collapse" class="video-toggle"
-        onclick="expand_collapse('video5')">
-        Watch Video Overview
-  </span>
-  <div id="video5" style="display:none;">
-    <video controls>
-      <source src="videos/Reviews_to_Revenue.mp4" type="video/mp4">
-    </video>
-  </div>
-</div>
-</li>
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Dynamics of Musical Success: A Machine Learning Approach for Multimedia Data Fusion</span>
+          <div class="paper-links">
+            <a href="https://journals.sagepub.com/doi/full/10.1177/00222437211016495" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi and Asim Ansari (2021) — Lead article.</span>
+          <span class="video-toggle" onclick="toggleVideo('video2', this)">[Watch Video Overview]</span>
+        </div>
+        <div id="video2" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/Decoding_the_Hits.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="paper-venue"><em>Journal of Marketing Research</em>, 2021.</div>
+      </div>
 
-<h2>Work in Progress</h2>
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Randomized Algorithms for Lexicographic Inference</span>
+          <div class="paper-links">
+            <a href="https://pubsonline.informs.org/doi/abs/10.1287/opre.2018.1794" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Rajeev Kohli, Khaled Boughanmi, and Vikram Kohli (2019)</span>
+          <span class="video-toggle" onclick="toggleVideo('video3', this)">[Watch Video Overview]</span>
+        </div>
+        <div id="video3" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/Your_Brain_s_Shortcut.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="paper-venue"><em>Operations Research</em>, 2019.</div>
+      </div>
 
-<li>
-Weighting Graphs for Causal Inference, <br>
-Khaled Boughanmi, Mingzhang Yin, and Sachin Gupta.<br>
-- AIM 2025 Conference Awards, Finalist.<br>
-<br>
-</li>
-<li>
-The Role of Typicality in Shaping Perfume Popularity, <br>
-Khaled Boughanmi and Kamel Jedidi.
-<br>
-</li>
-<br>
-<li>
-The Impact of Experiential Store on Customer Purchases, <br>
-Khaled Boughanmi, Raghuram Iyengar, and Young-Hoon Park.
-<br>
-</li>
-<br>
-<br>
-<br>
-</ul>
-</td>
-</tr>
-</table>
+      <h3>Working Papers</h3>
 
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Modeling Dynamic Consumer Preferences from Few-shot Data: A Meta-Learning Approach</span>
+          <div class="paper-links">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4727171" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Mingzhang Yin, Khaled Boughanmi, and Anirban Mukherjee</span>
+          <span class="video-toggle" onclick="toggleVideo('video4', this)">[Watch Video Overview]</span>
+        </div>
+        <div id="video4" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/The_AI_That_Learns_How_You_Think.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">A Bayesian Latent-Factor Framework for Causal Decomposition in High-Dimensional Experiments</span>
+          <div class="paper-links">
+            <a href="bayesian_causal_decomposition.pdf" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi, Raghuram Iyengar, and Young-Hoon Park</span>
+          <span class="video-toggle" onclick="toggleVideo('video6', this)">[Watch Video Overview]</span>
+        </div>
+        <div id="video6" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/From__What__to__Why_.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">From Reviews to Actionable Insights: An LLM-Based Approach for Attribute and Feature Extraction</span>
+          <div class="paper-links">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5599772" target="_blank" rel="noopener">[Paper]</a>
+          </div>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi, Kamel Jedidi, and Nour Jedidi</span>
+          <span class="video-toggle" onclick="toggleVideo('video5', this)">[Watch Video Overview]</span>
+        </div>
+        <div class="paper-notes">
+          - This research was supported by a Cornell Center for Social Sciences grant.<br />
+          - Featured in
+          <a href="https://business.columbia.edu/research-brief/ai-can-read-room-better-you-think" target="_blank" rel="noopener">
+            <em>Columbia Business School Research in Brief, 2025.</em>
+          </a>
+        </div>
+        <div id="video5" style="display:none;" class="video-container">
+          <video controls>
+            <source src="videos/Reviews_to_Revenue.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      <h3>Work in Progress</h3>
+
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">Weighting Graphs for Causal Inference</span>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi, Mingzhang Yin, and Sachin Gupta</span>
+        </div>
+        <div class="paper-notes">- AIM 2025 Conference Awards, Finalist.</div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">The Role of Typicality in Shaping Perfume Popularity</span>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi and Kamel Jedidi</span>
+        </div>
+      </div>
+
+      <div class="paper">
+        <div class="paper-title-line">
+          <span class="paper-title">The Impact of Experiential Store on Customer Purchases</span>
+        </div>
+        <div class="paper-authors-line">
+          <span>Khaled Boughanmi, Raghuram Iyengar, and Young-Hoon Park</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <a href="https://www.johnson.cornell.edu/faculty-research/faculty/kb746/" target="_blank" rel="noopener">Cornell Faculty Profile</a>
+      &nbsp;|&nbsp;
+      <a href="cv.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+    </p>
+    <p style="margin-top: 10px;">© 2026 Khaled Boughanmi</p>
+  </footer>
+
+  <script>
+    function toggleVideo(id, el) {
+      const box = document.getElementById(id);
+      const isHidden = (box.style.display === "none" || box.style.display === "");
+      box.style.display = isHidden ? "block" : "none";
+      if (el) el.textContent = isHidden ? "[Hide Video Overview]" : "[Watch Video Overview]";
+    }
+  </script>
 </body>
 </html>
